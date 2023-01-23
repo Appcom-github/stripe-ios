@@ -17,7 +17,7 @@ typealias PaymentOption = PaymentSheet.PaymentOption
 
 extension PaymentSheet {
     /// Represents the ways a customer can pay in PaymentSheet
-    public enum PaymentOption {
+    enum PaymentOption {
         case applePay
         case saved(paymentMethod: STPPaymentMethod)
         case new(confirmParams: IntentConfirmParams)
@@ -50,7 +50,7 @@ extension PaymentSheet {
             /// A user facing string representing the payment method; e.g. "Apple Pay" or "····4242" for a card
             public let label: String
 
-            public init(paymentOption: PaymentOption) {
+            init(paymentOption: PaymentOption) {
                 image = paymentOption.makeIcon(updateImageHandler: nil)
                 switch paymentOption {
                 case .applePay:
@@ -62,6 +62,10 @@ extension PaymentSheet {
                 case .link(let option):
                     label = option.paymentSheetLabel
                 }
+            }
+            
+            public static func getDisplayData(from paymentMethod: STPPaymentMethod) -> PaymentOptionDisplayData {
+                return PaymentOptionDisplayData(paymentOption: PaymentSheet.PaymentOption.saved(paymentMethod: paymentMethod))
             }
         }
 
