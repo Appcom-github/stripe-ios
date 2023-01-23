@@ -17,7 +17,7 @@ typealias PaymentOption = PaymentSheet.PaymentOption
 
 extension PaymentSheet {
     /// Represents the ways a customer can pay in PaymentSheet
-    enum PaymentOption {
+    public enum PaymentOption {
         case applePay
         case saved(paymentMethod: STPPaymentMethod)
         case new(confirmParams: IntentConfirmParams)
