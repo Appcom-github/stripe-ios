@@ -50,7 +50,7 @@ extension PaymentSheet {
             /// A user facing string representing the payment method; e.g. "Apple Pay" or "····4242" for a card
             public let label: String
 
-            init(paymentOption: PaymentOption) {
+            public init(paymentOption: PaymentOption) {
                 image = paymentOption.makeIcon(updateImageHandler: nil)
                 switch paymentOption {
                 case .applePay:
