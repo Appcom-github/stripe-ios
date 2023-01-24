@@ -14,7 +14,7 @@ public final class DefaultPaymentMethodStore {
         case link
         case stripe(id: String)
 
-        var value: String {
+        public var value: String {
             switch self {
             case .applePay:
                 return "apple_pay"
@@ -25,7 +25,7 @@ public final class DefaultPaymentMethodStore {
             }
         }
 
-        init(value: String) {
+        public init(value: String) {
             switch value {
             case "apple_pay":
                 self = .applePay
