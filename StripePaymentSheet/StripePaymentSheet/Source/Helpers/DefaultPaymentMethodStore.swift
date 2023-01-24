@@ -8,8 +8,8 @@
 
 import Foundation
 
-final class DefaultPaymentMethodStore {
-    enum PaymentMethodIdentifier: Equatable {
+public final class DefaultPaymentMethodStore {
+    public enum PaymentMethodIdentifier: Equatable {
         case applePay
         case link
         case stripe(id: String)
@@ -53,7 +53,7 @@ final class DefaultPaymentMethodStore {
     /// Returns the identifier of the default payment method for a customer.
     /// - Parameter customerID: ID of the customer. Pass `nil` for anonymous users.
     /// - Returns: Default payment method.
-    static func defaultPaymentMethod(for customerID: String?) -> PaymentMethodIdentifier? {
+    public static func defaultPaymentMethod(for customerID: String?) -> PaymentMethodIdentifier? {
         let key = customerID ?? ""
 
         guard let value = UserDefaults.standard.customerToLastSelectedPaymentMethod?[key] else {
